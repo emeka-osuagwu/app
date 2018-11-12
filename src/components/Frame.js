@@ -10,8 +10,6 @@ import words from '../config/words.json'
 import aws from 'aws-sdk';
 import aws_config from '../config/aws.json'
 
-import axios from "axios" 
-
 import {
 	FacebookIcon,
 	TwitterIcon,
