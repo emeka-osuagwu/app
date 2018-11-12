@@ -1,0 +1,219 @@
+html, body {
+}
+
+@font-face {
+	font-family: Hand_Of_Sean;
+	src: url(../font/Hand_Of_Sean.ttf);
+}
+
+
+*{
+	font-family: Hand_Of_Sean;
+}
+
+.main_header {
+	background-color: red;
+}
+img.header_image {
+    width: 96px;
+    position: absolute;
+    left: 100px;
+    z-index: 1001;
+}
+.page_header {
+    background: red;
+    color: #fff;
+    justify-content: none
+}
+a.nav-link {
+    color: #fff;
+}
+
+a.navbar-brand {
+    color: #fff;
+}
+.main_body {
+	width: 100vw;
+	min-height: 100vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	overflow-x: hidden;
+}
+
+
+.frame_container {
+/*	min-height: 900px;
+	max-height: 900px;*/
+	padding: 0px;
+	background-color: red;
+	background-color: #fff;
+	border-bottom-right-radius: 14px;
+	border-bottom-left-radius: 14px;
+	background-color: #ffffffa1;
+}
+
+.card-header {
+	/*min-height: 300px;*/
+	background-color: #fff100;
+	text-align: center;
+	padding: 0px 20px;
+}
+.card-header--mobile {
+	height: 100px;
+	max-height: 100px;
+	padding: 0px 30px;
+}
+img.img-fluid {
+    height: 135px;
+}
+.card-body {
+	min-height: 500px;
+	max-height: 500px;
+}
+.card-body--mobile {
+	margin-top: 50px;
+	min-height: 400px;
+	max-height: 400px;	
+}
+.card-footer {
+	/*min-height: 300px;*/
+	/*height: 20%;*/
+}
+.header_text_con.header_lead_text_con {
+	text-transform: uppercase;
+    font-size: 26px;
+    padding-top: 20px;
+}
+h1.header_lead_text {
+    font-size: 36px;
+    color: red;
+}
+span.header_sub_text.header_sub_text--hashtag {
+    font-size: 30px;
+	text-transform: none;
+	color: red
+}
+
+span.header_sub_text {
+	display: block;
+	text-transform: uppercase;
+    font-size: 18px;
+}
+
+
+
+
+
+
+.frame_fliter, .frame_color_fliter_con, .frame_color_frame_action {
+	justify-content: center;
+	height: 50px;
+}
+
+.frame_fliter_item {
+	margin: 10px;
+}
+
+.card-footer {
+	/*height: 400px;*/
+	/*height: 20%;*/
+}
+
+
+
+button.btn.btn-secondary.frame_fliter_item {
+    /*height: 24px;*/
+}
+
+button.btn.btn-secondary.frame_fliter_item.active {
+    background-color: red;
+    border: none;
+}
+
+
+button.btn.btn-secondary.frame_color_fliter {
+    margin: 10px;
+    width: 100px;
+    height: 42px;
+    border-width: 4px!important;
+    border: #fff;
+    border: solid;
+
+}
+
+button.btn.btn-secondary.frame_color_fliter.yellow {
+	background-color: #fff100
+}
+
+button.btn.btn-secondary.frame_color_fliter.black {
+	background-color: black
+}
+
+button.btn.btn-secondary.frame_color_fliter.red {
+	background-color: red
+}
+
+.frame_action {
+	height: 42px;
+	margin-left: 30px
+}
+
+.frame_action {
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff100;
+    color: red;
+}
+
+.frame_action:hover {
+    background: #fff100;
+    color: red;
+    border-color: transparent;
+}
+.frame_color_frame_action {
+	margin-top: 20px;
+}
+
+.footer {
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+}
+
+.Image {
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.profile_input_text {
+	font-family: serif;
+}
+
+button.btn.btn-secondary.frame_fliter_item {
+    background: #ffffff78;
+    border: navajowhite;
+}
