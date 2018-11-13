@@ -217,3 +217,47 @@ button.btn.btn-secondary.frame_fliter_item {
     background: #ffffff78;
     border: navajowhite;
 }
+
+.col.col-12.social_button_con {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button.btn.social_btn_btn_con {
+    background: transparent;
+}
+
+.loader_con {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+.card-header.d-none.d-lg-block {
+    height: 150px
+}
+.col.col-12.header_text_con.header_lead_text_con {
+    font-size: 20px;
+}
+
+h1.header_lead_text {
+    font-size: 26px;
+}
+
+.col.col-12.header_text_con {
+    font-size: 10px;
+}
+
+span.header_sub_text {
+    font-size: 11px;
+}
+
+span.header_sub_text.header_sub_text--hashtag {
+    font-size: 15px;
+}
