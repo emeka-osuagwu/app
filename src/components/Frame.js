@@ -82,7 +82,9 @@ class Frame extends Component {
 				aspect: 1,
 				height: 80
 			},
-			words: []
+			words: [],
+			uploaded_url: '',
+			share_caption: "How do you make a difference? Get your frame and let us know! www.SheMakesADifferenceFrames.com #SheMakesADifference."
 		};
 
 	  	this.cardElement1 = React.createRef();
@@ -182,95 +184,123 @@ class Frame extends Component {
 		let file = e.target.files[0];
 		let image = new window.Image();
 		
-		image.src = URL.createObjectURL(file)
+		// image.src = URL.createObjectURL(file)
 		
-		image.onload = () => {
+		// image.onload = () => {
 			
-			this.setState({
-				canvas_image: image
-			});
+		// 	this.setState({
+		// 		canvas_image: image
+		// 	});
 		
-			reader.onloadend = () => {
+		// 	reader.onloadend = () => {
 
-				this.setState({}, function(){
+		// 		this.setState({}, function(){
 
-					if(this)
-						image.src = URL.createObjectURL(file);
+		// 			if(this)
+		// 				image.src = URL.createObjectURL(file);
 
-						let rekognition = new aws.Rekognition();
+		// 				let rekognition = new aws.Rekognition();
 
-						var params = {
-							Image: {
-								Bytes:this.getBinary(reader.result, file),
-							},
-						};
+		// 				var params = {
+		// 					Image: {
+		// 						Bytes:this.getBinary(reader.result, file),
+		// 					},
+		// 				};
 
-						rekognition.detectFaces(params, function(err, data) {
-							if (data.FaceDetails.length) {
+		// 				rekognition.detectFaces(params, function(err, data) {
+		// 					if (data.FaceDetails.length) {
 
-								const image = new window.Image();
+		// 						const image = new window.Image();
 								
-								image.src = URL.createObjectURL(file)
+		// 						image.src = URL.createObjectURL(file)
 
-								image.onload = () => {
-									this.setState({
-										canvas_image: image
-									});
-								};
-							}
-							else{
-								var image = new window.Image();
+		// 						image.onload = () => {
+		// 							this.setState({
+		// 								canvas_image: image
+		// 							});
+		// 						};
+		// 					}
+		// 					else{
+		// 						var image = new window.Image();
 								
-								image.src = boss_lady
+		// 						image.src = boss_lady
 								
-								image.onload = () => {
-									this.setState({
-										canvas_image: image,
-										profile_text: "Boss Lady"
-									});
+		// 						image.onload = () => {
+		// 							this.setState({
+		// 								canvas_image: image,
+		// 								profile_text: "Boss Lady"
+		// 							});
 
-								};
-							}
-						}.bind(this));
+		// 						};
+		// 					}
+		// 				}.bind(this));
 
-						rekognition.detectModerationLabels(params, function(err, data) {
-							console.log(data)
+		// 				rekognition.detectModerationLabels(params, function(err, data) {
+		// 					console.log(data)
 
-							if (data.ModerationLabels.length) {
+		// 					if (data.ModerationLabels.length) {
 
-								var image = new window.Image();
+		// 						var image = new window.Image();
 								
-								image.src = boss_lady
+		// 						image.src = boss_lady
 								
-								image.onload = () => {
-									console.log(image)
-									this.setState({
-										canvas_image: image,
-										profile_text: "Boss hjfjvhdfjhLady"
-									});
+		// 						image.onload = () => {
+		// 							console.log(image)
+		// 							this.setState({
+		// 								canvas_image: image,
+		// 								profile_text: "Boss hjfjvhdfjhLady"
+		// 							});
 
-								};
+		// 						};
 
-							}
-							else{
+		// 					}
+		// 					else{
 
-							}
+		// 					}
 
-						}.bind(this));
+		// 				}.bind(this));
+		// 		})
+		// 	}
+
+		// 	console.log(this.state.verified, "fjhvdfjhvdjfhvdjfhd")
+
+		// 	reader.readAsDataURL(file)
+		// 	image.onload = () => {
+
+		// 	this.setState({
+		// 	image: image,file:file,screen_width:this.width,screen_height:this.height
+		// 	});
+
+		// 	};
+		// };
+	}
+
+	shareImage() {
+		var image = this.stageRef.getStage().toDataURL({mimeType: 'image/png', quality: 1.0});
+		var url = image.replace(/^data:image\/[^;]+/, 'data:application/');
+		
+		let formData = new FormData();
+		formData.append('image', image);
+
+		fetch("http://localhost:5000", {
+			method: 'POST',
+			body: formData
+		})
+		.then(res => res.json())
+		.then(res => {
+			console.log(res)
+			if (res.status == "200") {
+				this.setState({
+					uploaded_url: res.data.url
 				})
 			}
-
-			console.log(this.state.verified, "fjhvdfjhvdjfhvdjfhd")
-
-			reader.readAsDataURL(file)
-			image.onload = () => {
-
-			this.setState({
-			image: image,file:file,screen_width:this.width,screen_height:this.height
-			});
-
-			};
-		};
+			else{
+				alert('image upload error, please try again')
+			}
+		})
+		.catch(error => {
+			console.log(error, "error")
+		})
 	}
 
 	onSelectFile = e => {
@@ -334,15 +364,6 @@ class Frame extends Component {
 		var image = this.stageRef.getStage().toDataURL({mimeType: 'image/png', quality: 1.0})
 		var url = image.replace(/^data:image\/[^;]+/, 'data:application/');
 		this.setState({download:url})
-	}
-
-	shareImage() {
-		var image = this.stageRef.getStage().toDataURL({mimeType: 'image/png', quality: 1.0})
-		var url = image.replace(/^data:image\/[^;]+/, 'data:application/');
-
-		let formData = new FormData();
-		formData.append('image', url);
-		
 	}
 
 	switchFrame(event, image_url, profile){
@@ -571,7 +592,14 @@ class Frame extends Component {
 						{this.renderColorFliter()}
 						{this.renderActionOptions()}
 
-						
+						<FacebookShareButton
+						  url={this.state.uploaded_url}
+						  quote={this.state.share_caption}
+						  className="Demo__some-network__share-button">
+						  <FacebookIcon
+						    size={32}
+						    round />
+						</FacebookShareButton>
 					</div>
 				</div>
 			</div>
