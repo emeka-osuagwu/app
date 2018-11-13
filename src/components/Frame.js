@@ -600,6 +600,8 @@ class Frame extends Component {
 						    size={32}
 						    round />
 						</FacebookShareButton>
+
+						
 					</div>
 				</div>
 			</div>
