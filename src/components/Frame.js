@@ -658,7 +658,6 @@ class Frame extends Component {
 					<div class="card-body" ref={this.cardElement1}>
 						{this.renderCanvas()}
 					</div>
-					
 					<div class="card-footer text-muted">
 						{this.renderTextInput()}
 						{this.renderFrameFliter()}
