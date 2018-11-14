@@ -236,9 +236,6 @@ button.btn.social_btn_btn_con {
 
 
 
-
-
-
 .card-header.d-none.d-lg-block {
     height: 150px
 }
@@ -261,3 +258,40 @@ span.header_sub_text {
 span.header_sub_text.header_sub_text--hashtag {
     font-size: 15px;
 }
+
+.card-body.d-none.d-lg-block {
+    max-height: 350px;
+    min-height: 350px;
+}
+
+img.header_image.d-none.d-lg-block {
+    left: 50px;
+}
+
+.card-body--mobile-card-body {
+    margin-top: 20px;
+    height: 300px;
+}
+
+a.nav-link {}
+
+li.nav-item.hashtag-con {
+    margin-left: -42px;
+}
+
+
+@media (max-width: 575.98px) {
+    .card-body {
+        margin-top: 20px
+    }
+
+    canvas {
+        height: 200px
+    }
+}
+
+@media (max-width: 767.98px) {  }
+
+@media (max-width: 991.98px) {  }
+
+@media (max-width: 1199.98px) {  }

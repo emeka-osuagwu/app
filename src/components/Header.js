@@ -6,7 +6,7 @@ class Header extends Component {
 		<div className="page_header">
 			<img src={logo} className="header_image d-none d-lg-block"></img>
 			<ul class="nav justify-content-end">
-				<li class="nav-item">
+				<li class="nav-item hashtag-con">
 					<a class="nav-link">#SheMakesADifference</a>
 				</li>
 				<li class="nav-item">

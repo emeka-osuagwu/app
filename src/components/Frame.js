@@ -11,6 +11,8 @@ import aws from 'aws-sdk';
 import aws_config from '../config/aws.json'
 
 import Loader from 'react-loader-spinner'
+import dotenv from 'dotenv'
+
 
 import {
 	FacebookIcon,
@@ -60,6 +62,7 @@ import slayer from "../assets/images/slayer.jpg"
 import ultimate_foodie from "../assets/images/ultimate_foodie.jpg"
 
 aws.config.update(aws_config);
+dotenv.config()
 
 class Frame extends Component {
 
@@ -106,7 +109,7 @@ class Frame extends Component {
 	}
 
 	componentWillMount() {
-
+		console.log(process.env)
 		window.addEventListener("orientationchange", function(screen) {
 			console.log(screen)
 		}, false);
@@ -271,7 +274,7 @@ class Frame extends Component {
 				})
 			}
 
-			console.log(this.state.verified, "fjhvdfjhvdjfhvdjfhd")
+			// console.log(this.state.verified, "fjhvdfjhvdjfhvdjfhd")
 
 			reader.readAsDataURL(file)
 			image.onload = () => {
@@ -652,10 +655,10 @@ class Frame extends Component {
 				<div class="card col-12 col-md-3 offset-md-1 frame_container">
 					{this.renderCardHeader()}
 
-					<div class="card-body d-none d-lg-block" ref={this.cardElement1}>
+					<div class="card-body" ref={this.cardElement1}>
 						{this.renderCanvas()}
 					</div>
-
+					
 					<div class="card-footer text-muted">
 						{this.renderTextInput()}
 						{this.renderFrameFliter()}

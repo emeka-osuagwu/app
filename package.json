@@ -10,6 +10,7 @@
     "cloudinary-react": "^1.0.6",
     "concurrently": "^4.0.1",
     "cors": "^2.8.5",
+    "dotenv": "^6.1.0",
     "express": "^4.16.3",
     "express-form-data": "^2.0.6",
     "file-saver": "^2.0.0-rc.4",
@@ -43,5 +44,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "react-app-env": "^1.2.3"
+  }
 }
